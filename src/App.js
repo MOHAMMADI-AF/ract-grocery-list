@@ -25,22 +25,31 @@ function App() {
 
   return (
     <div className="App">
-      <form onSubmit={addItem}>
-        <h3>Add an item to your list</h3>
-        <p>Item:</p> <input type="text" name="item"></input> <br />
-        <p>Brand:</p> <input type="text" name="brand"></input>
-        <br />
-        <p>Units:</p> <input type="text" name="units"></input>
-        <br />
-        <p>Quantity:</p> <input type="number" name="quantity"></input>
-        <br />
-        <input type="submit" value="submit"></input>
-      </form>
-      <br></br>
-      <h1> My Grocery List</h1>
-      {grList.map((ele, idx) => {
-        return !ele.isPurchased && <GroceryItem ele={ele} key={idx} />;
-      })}
+      <div className="main-page">
+        <header className="App-header">
+          <h1> My Grocery List</h1>
+        </header>
+        <div className="main">
+          <div className="form">
+            <form onSubmit={addItem}>
+              <h3>Add an item to your list</h3>
+              <p>Item:</p> <input type="text" name="item"></input> <br />
+              <p>Brand:</p> <input type="text" name="brand"></input>
+              <br />
+              <p>Units:</p> <input type="text" name="units"></input>
+              <br />
+              <p>Quantity:</p> <input type="number" name="quantity"></input>
+              <br />
+              <input type="submit" value="submit"></input>
+            </form>
+          </div>
+          <div className="page-contants">
+            {grList.map((ele, idx) => {
+              return !ele.isPurchased && <GroceryItem ele={ele} key={idx} />;
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
